@@ -1,53 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 using vec = vector<int>;
-using ll = long long;
 
-// int same[sum];
-vec same;
-
-void clean(int sum) {
-  same.resize(sum);
-  for (size_t i = 0; i < sum; i++) {
-    same[i] = 0;
-  }
-}
-
+map<int, int> result;
+int a, b, c;
 
 int main () {
 
   ios::sync_with_stdio(false);
 
-  int placesA, placesB, placesC;
-  cin >> placesA >> placesB >> placesC;
-  int sum = placesA + placesB + placesC;
-  vec result;
-  clean(sum);
-  for (size_t i = 0; i < placesA; i++) {
-    int genplaces;
-    cin >> genplaces;
-    same[genplaces]++;
-  }
-  for (size_t j = 0; j < placesB; j++) {
-    int genplaces;
-    cin >> genplaces;
-    same[genplaces]++;
-  }
-  for (size_t k = 0; k < placesC; k++) {
-    int genplaces;
-    cin >> genplaces;
-    same[genplaces]++;
+  vec q;
+  int sum = 0;
+  cin >> a >> b >> c;
+  sum = a + b + c;
+
+  for (size_t i = 0; i < sum; i++) {
+    int aux;
+    cin >> aux;
+    result[aux]++;
   }
 
-  for (size_t l = 0; l < same.size(); l++) {
-    if (same[l] >= 3) {
-      result.push_back(l);
+  for (auto it : result) {
+    if (it.second >= 3) {
+      q.push_back(it.first);
     }
   }
 
-  for (size_t z = 0; z < result.size(); z++) {
-    cout << result[z] << ((z == result.size() - 1) ? "\n" : " ");
+  for (size_t j = 0; j < q.size(); j++) {
+    cout << q[j] << ((j == q.size() - 1) ? "\n" : " ");
   }
-
   return 0;
 }
