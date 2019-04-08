@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using mid = map<int, double>;
+using mid = map<double, int>;
 using dd = deque<double>;
 using vd = vector<double>;
 int main () {
@@ -29,16 +29,22 @@ int main () {
       sum += notes[i];
     }
     sum *= dif;
-    athlete[num] = sum;
+    cerr << "sum: " << sum << '\n';
+    athlete[sum] = num;
     notes.clear();
     aux.clear();
     sum = 0;
     num++;
   }
-  //sort(athlete.begin(), athlete.end());
-
-  for (auto elem : athlete) {
-    cout << elem.first << " " << elem.second << endl;
+  // for (auto elem : athlete) {
+  //   printf("%d %.1lf\n", elem.second, elem.first);
+  // }
+  cout.precision(3);
+  for (auto iter = athlete.rbegin(); iter != athlete.rend(); ++iter) {
+    //printf("%d %.1lf\n", iter->second, iter->first);
+    //cout << fixed;
+    cout << iter->second << " " << iter->first << endl;
+        //std::cout << iter->first << ": " << iter->second << std::endl;
   }
   return 0;
 }
