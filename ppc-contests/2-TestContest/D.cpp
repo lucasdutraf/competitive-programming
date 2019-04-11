@@ -4,40 +4,47 @@ using vi = vector<int>;
 
 int main () {
 
-  int n, aux, sec = 0;
-  vi ordement, sor;
-  cin >> n;
-  for (size_t i = 0; i < n; i++) {
-    cin >> aux;
-    ordement.push_back(aux);
+  int gr, les, nso, us, nums = 0, posles, posgr;
+  vi aux, s, mds;
+  cin >> nso;
+  while (nso--) {
+    cin >> us;
+    aux.push_back(us);
+    s.push_back(us);
   }
-  sor = ordement;
-  sort(sor.begin(), sor.end());
-  if (sor[n - 1] != ordement[0]) {
-    int a = sor[n - 1];
-    auto it = find(ordement.begin(), ordement.end(), a);
-    int dis = distance(ordement.begin(), it);
-    dis -= 1;
-    while (ordement[0] != a) {
-      swap(ordement[dis - 1], ordement[dis]);
-      dis--;
-      sec++;
+  mds = s;
+  sort(aux.begin(), aux.end());
+  gr = aux[aux.size() - 1];
+  les = aux[0];
+  reverse(mds.begin(), mds.end());
+  for (size_t i = 0; i < s.size(); i++) {
+    if (s[i] == les) {
+      posles = i;
     }
   }
-
-  if (sor[0] != ordement[n - 1]) {
-    int a = sor[0];
-    auto it = find(ordement.begin(), ordement.end(), a);
-    int dis = distance(ordement.begin(), it);
-    dis -= 1;
-    while (ordement[n - 1] != a) {
-      swap(ordement[dis + 1], ordement[dis]);
-      dis++;
-      sec++;
+  posles = s.size() - (posles + 1);
+  for (size_t j = 0; j < s.size(); j++) {
+    if (s[j] == gr) {
+      posgr = j;
     }
   }
-
-  cout << sec << endl;
-
+  while (s[0] != gr) {
+    if (posgr == s[0]) {
+      break;
+    }
+    swap(s[posgr - 1], s[posgr]);
+    nums++;
+    posgr -= 1;
+  }
+  cerr << "aqui" << endl;
+  // while (s[s.size() - 1] != les) {
+  //   if (posles == s[s.size() - 1]) {
+  //     break;
+  //   }
+  //   swap(s[posles], s[posles + 1]);
+  //   nums++;
+  //   posles -= 1;
+  // }
+  cout << nums << endl;
   return 0;
 }
