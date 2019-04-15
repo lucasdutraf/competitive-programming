@@ -118,10 +118,10 @@ int main(){
 
       long long totalini = (3600 * hrinic) + (60 * mininic) + seginic;
       long long totalfim = (3600 * hrfim) + (60 * minfim) + segfim;
-      if (totalfim > totalini) {
-        totalini += (3600 * 24);
+      if (totalfim < totalini) {
+        totalfim += (3600 * 24);
       }
-      long long totaldura = totalini - totalfim;
+      long long totaldura = totalfim - totalini;
       long long hrdura = totaldura/3600;
       long long mindura = (totaldura%3600)/60;
       long long segdura = (totaldura%3600)%60;
