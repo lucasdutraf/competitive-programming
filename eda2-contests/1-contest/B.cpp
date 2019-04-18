@@ -5,35 +5,26 @@
 using namespace std;
 using mi = deque<int>;
 using vvi = vector<int>;
+using vp = vector<pair<int, int>>;
 using mii = map<int, int>; // posi, valor
 
 int main(){
     ios_base::sync_with_stdio(false);
     int n, k, aux;
-    mi gr;
-    mii ans;
+    vp gr;
     vvi v;
     cin >> n >> k;
     for (size_t i = 0; i < n; i++) {
       cin >> aux;
-      gr.push_back(aux);
-      ans[i] = aux;
+      gr.push_back(make_pair(aux, i));
     }
     sort(gr.begin(), gr.end());
     int i = 0;
     while (gr.size() - i >= 3) {
-      if (((gr[i + 1] - gr[i]) <= k) && ((gr[i + 2] - gr[i]) <= k) ) {
-        for (auto elem : ans) {
-          if (elem.second == gr[i]) {
-            v.push_back(elem.first);
-          }
-          else if(elem.second == gr[i + 1]) {
-            v.push_back(elem.first);
-          }
-          else if(elem.second == gr[i + 2]) {
-            v.push_back(elem.first);
-          }
-        }
+      if (((gr[i + 1].first - gr[i].first) <= k) && ((gr[i + 2].first - gr[i].first) <= k) ) {
+        v.push_back(gr[i].second);
+        v.push_back(gr[i + 1].second);
+        v.push_back(gr[i + 2].second);
         i += 2;
       }
       i++;
