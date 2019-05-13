@@ -6,6 +6,10 @@
 * URI Online Judge
 * UVa Online Judge
 
+## Languages used
+* C++
+* Python
+
 ## Pending problems
 * atCoder Begginer Contest 50 - C
 
