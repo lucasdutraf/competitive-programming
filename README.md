@@ -20,7 +20,7 @@
 * C++
 * Python
 
-## Intersting competitive programming content ([Direct Access](https://github.com/lucasdutraf/competitive-programming/tree/master/interesting-content))
+## Cool Tips ([Direct Access](https://github.com/lucasdutraf/competitive-programming/tree/master/Cool-Tips))
 * Fenwick Trees
 * Sieve of Atkins - Crivo de Atkins
 * Sieve of Eratosthenes - Crivo de Erastótenes
