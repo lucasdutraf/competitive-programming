@@ -26,6 +26,9 @@
 * Sieve of Eratosthenes - Crivo de Erastótenes
 * Basic tips
 
+## Interesting Links
+* https://codeforces.com/blog/entry/13529
+
 ## Pending problems
 * atCoder Begginer Contest 50 - C
 * atCoder Begginer Contest 51 - B
