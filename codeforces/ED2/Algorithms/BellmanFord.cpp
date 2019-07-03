@@ -8,13 +8,13 @@ int dist[MAX];
 void bellman_ford(int s, int N, const vector<edge>& edges) {
   for (size_t i = 1; i <= N; i++) {
     dist[i] = oo;
-  }
+  } // inicializa vetor de distancias com oo
   dist[s] = 0;
 
   for (size_t i = 0; i <= N - 1; i++) {
     for (const auto& [u, v, w] : edges) {
       dist[v] = min(dist[v], dist[u] + w);
-    }
+    } // se a distancia somada com o caminho anterior for menor que a direta
   }
 }
 
