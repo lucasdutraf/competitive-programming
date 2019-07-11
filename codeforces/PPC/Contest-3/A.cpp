@@ -24,7 +24,7 @@ int main () {
                 cout << aux << endl;
                 livros.pop();
             }
-        }
+        } 
         else livros.push(livro);
     }
 
