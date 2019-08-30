@@ -1,4 +1,4 @@
-#include <bits/std++.h>
+#include <bits/stdc++.h>
 using namespace std;
 const int MAX {100010};
 using edge = pair<int, int>;
