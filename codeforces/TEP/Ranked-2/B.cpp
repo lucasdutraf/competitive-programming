@@ -1,19 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-using msi = map<string, int>;
+using msc = multiset<char>;
 
 int main () {
 
-  int n; cin >> n;
-  ll total = 0;
-  msi ans;
-  ans["Icosahedron"] = 20; ans["Tetrahedron"] = 4; ans["Octahedron"] = 8;
-  ans["Dodecahedron"] = 12; ans["Cube"] =  6;
-  while (n--) {
-    string s; cin >> s;
-    total += ans[s];
+  int a; cin >> a;
+  string b; cin >> b; string aux(b, 1, a - 1);
+  msc ans;
+  for (auto elem : b) {
+    ans.insert(elem);
   }
-  cout << total << endl;
+  if (ans.count('0') != ans.count('1')) {
+    cout << "1" << endl;
+    cout << b << endl;
+    return 0;
+  }
+  cout << "2" << endl;
+  cout << b[0] << " " << aux << endl;
+
   return 0;
 }
