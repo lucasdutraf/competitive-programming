@@ -1,36 +1,62 @@
-#include <bits/stdc++.h>
-#define debug(x) cerr << #x << ": " << x << endl;
+// #include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
 
+ 
+using namespace __gnu_pbds;
+#define ordered_set tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
+ 
 using namespace std;
-using vi = vector<int>;
-
-int main () {
-    ios_base::sync_with_stdio(false);
-
-    int n, m; cin >> n >> m;
-    vi person, sushi, result;
-    int pointer_a = 0, pointer_b = 0;
-
-    for (size_t i = 0; i < n; i++) {
-        int personLevel; cin >> personLevel;
-        person.emplace_back(personLevel)
-    }
-
-    for (size_t i = 0; i < m; i++) {
-        int sushiLevel; cin >> sushiLevel;
-        sushi.emplace_back(sushiLevel)
-    }
-
-    while (m > 0) {
-        if (sushi[pointer_b])
+ 
+typedef long long ll;
+typedef pair<int, int> ii;
+typedef vector<int> vi;
+typedef vector<ii> vii;
+typedef pair<ll, ll> pll;
+typedef vector<pll> vll;
+typedef vector<ll> vl;
+ 
+const int MAX = 2e5;
+ 
+auto solve()
+{
+    int n, m;
+    cin >> n >> m;
+ 
+    vi ans(MAX + 1, -1);
+    int curr = MAX;
+    for(int i = 1; i <= n; i++) 
+    {
+        int t;
+        cin >> t;
+ 
+        while(curr >= t)
         {
-            /* code */
+            ans[curr--] = i;
         }
-        
     }
-    
-    
-
-
+ 
+    while(m--)
+    {
+        int t;
+        cin >> t;
+ 
+        cout << ans[t] << "\n";
+    }
+}
+ 
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    ll t = 1;
+    // cin >> t;
+ 
+    while (t--)
+    {
+        solve();
+    }
+ 
     return 0;
 }
