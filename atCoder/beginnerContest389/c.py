@@ -1,9 +1,11 @@
+from collections import deque
+
 queries = int(input().strip())
 
 removed_snakes = 0
 head_index = 0
 
-snakes = list()
+snakes = deque()
 
 for _ in range(queries): # O(Q)
     query = input().strip()
@@ -16,7 +18,7 @@ for _ in range(queries): # O(Q)
         snakes.append(s) # O(1)
         head_index += snake_length
     elif query_type == "2":
-        removed_snake = snakes.pop(0)
+        removed_snake = snakes.popleft() # O(1)
         removed_snakes += removed_snake[0]
 
     elif query_type == "3":
